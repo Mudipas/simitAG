@@ -231,10 +231,7 @@ function kdauto($tabel, $inisial){
                                         <option value="AMBASSADOR2" >AMBASSADOR 2</option>
                                         
                                 
-                                    </select>
-
-                                                                    
-
+                                    </select>   
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -266,7 +263,7 @@ function kdauto($tabel, $inisial){
                                             <input class="form-control" type="hidden" name="nomor" id="nomor" readonly>
                                     
                                         </div>
-										 <div class="form-group">
+										<div class="form-group">
                                          ID Perangkat
                                             <input class="form-control" type="text" name="id_perangkat" id="id_perangkat"   >
                                     
