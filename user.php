@@ -1,4 +1,10 @@
 <?
+// if (headers_sent($file, $line)) {
+//     die("Header sudah dikirim di $file pada baris $line");
+// }
+session_start();
+
+
 // $pathAwal = "C:/xampp/htdocs/simit/backup/backup.sql";
 // $pathTujuan = "D:/backupsimit/backup.sql";
 // copy($pathAwal, $pathTujuan);  
@@ -9,6 +15,8 @@
 // copy($pathAwal2, $pathTujuan2);  
 // ?>
 <?
+// ob_start(); 
+// session_start();
 include('config.php');
 $tgll=date('20y-01-01');
 
@@ -486,7 +494,13 @@ $tgll=date('20y-01-01');
                    
                     </ul>
                 </li>-->
-							 
+                <?php if ($_SESSION['akses'] == 'super admin') {  ?> 
+                <li class="panel">
+                    <a href="user.php?menu=users">
+                        <i class="icon-user"> </i> User
+                    </a>
+                </li>
+                <?php } ?>
 							 
 	  <li><a href="aplikasi/login_out.php" onclick="return confirm('Terima Kasih telah menggunakan manual guide ini, Yakin Mau Keluar ?')"><i class="icon-signout"></i> Logout </a>
                             </li>
@@ -594,6 +608,7 @@ case('barang'); include('aplikasi/barang.php'); break;
 case('peripheral'); include('aplikasi/peripheral.php'); break;
 case('perawatan'); include('aplikasi/perawatan/perawatan.php'); break;
 case('perawatanapp'); include('aplikasi/perawatan_app/index.php'); break;
+case('users'); include('aplikasi/user/user.php'); break;
 } }
 ?>
 
