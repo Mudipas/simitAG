@@ -6,7 +6,7 @@ class PDF extends FPDF
 function Header()
 	{
 $this->setFont('Arial','',8,'C');
-$this->Cell(10,0,'                                                                                                                                                                                                                                                                                                                                      FM-IT-18-07');
+$this->Cell(10,0,'                                                                                                                                                                                                                                                                                                                                      FM-00-IT-08-07');
 $this->Ln(4);
 $this->setFont('Arial','',14,'C');
 $this->Cell(10,0,'                                                      DAFTAR PERMINTAAN PERBAIKAN PERANGKAT KOMPUTER');
