@@ -67,6 +67,7 @@ INSERT INTO bagian VALUES("B139","GUDANG INCOMING");
 INSERT INTO bagian VALUES("B140","PRODUKSI");
 INSERT INTO bagian VALUES("B141","QA");
 INSERT INTO bagian VALUES("B142","QC");
+INSERT INTO bagian VALUES("B145","GD_ASMAT");
 
 
 
@@ -105,7 +106,7 @@ INSERT INTO bagian_pemakai VALUES("B0025","QMS");
 INSERT INTO bagian_pemakai VALUES("B0026","SEWING");
 INSERT INTO bagian_pemakai VALUES("B0027","GD_GREY");
 INSERT INTO bagian_pemakai VALUES("B0028","GD_FINPRINT");
-INSERT INTO bagian_pemakai VALUES("B0029","GD_KAPAS");
+INSERT INTO bagian_pemakai VALUES("B0113","GD_ASMAT");
 INSERT INTO bagian_pemakai VALUES("B0030","GD_CHEMICAL");
 INSERT INTO bagian_pemakai VALUES("B0031"," WEAVING1");
 INSERT INTO bagian_pemakai VALUES("B0032"," WEAVING2");
@@ -166,7 +167,6 @@ INSERT INTO bagian_pemakai VALUES("B0087","PRODUKSI PRINTING");
 INSERT INTO bagian_pemakai VALUES("B0088","LABORAT PRINTING");
 INSERT INTO bagian_pemakai VALUES("B0089","DRIL");
 INSERT INTO bagian_pemakai VALUES("B0090","5 S");
-INSERT INTO bagian_pemakai VALUES("B0091","PASTA PRINTING");
 INSERT INTO bagian_pemakai VALUES("B0092","DYEING PRINTING");
 INSERT INTO bagian_pemakai VALUES("B0093","PERTOKOAN");
 INSERT INTO bagian_pemakai VALUES("B0094","ONLINE");
@@ -247,14 +247,9 @@ CREATE TABLE `divisi` (
   `namadivisi` varchar(10) collate latin1_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=DYNAMIC;
 
-INSERT INTO divisi VALUES("G","GARMENT");
-INSERT INTO divisi VALUES("T","TEXTILE");
 INSERT INTO divisi VALUES("A","AMBASADOR");
 INSERT INTO divisi VALUES("E","EFRATA");
 INSERT INTO divisi VALUES("M","MAS");
-INSERT INTO divisi VALUES("B","BEA CUKAI");
-INSERT INTO divisi VALUES("MO","MOONLAY");
-INSERT INTO divisi VALUES("D","DIV. UMUM");
 
 
 
@@ -301,6 +296,34 @@ INSERT INTO it VALUES("17","DEWI P N","DEWI");
 INSERT INTO it VALUES("18","SETYAWATI","SETYAWATI");
 INSERT INTO it VALUES("19","CICILIA RIKA IRIANTO","CICIL");
 INSERT INTO it VALUES("20","AMIRRUDIN","AMIR");
+
+
+
+DROP TABLE ket_perawatan;
+
+CREATE TABLE `ket_perawatan` (
+  `id` int(10) NOT NULL auto_increment,
+  `idpc` char(255) collate latin1_general_ci default NULL,
+  `treated_by` char(100) collate latin1_general_ci default NULL,
+  `ket` text collate latin1_general_ci,
+  `tahun` int(10) default NULL,
+  `approve_by` varchar(50) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+INSERT INTO ket_perawatan VALUES("45","AMG.AG1/KOM.02/0003","admin","","2024","");
+INSERT INTO ket_perawatan VALUES("46","AMG.AG1/KOM.02/0018","","","2024","");
+INSERT INTO ket_perawatan VALUES("47","AMG.AG2/KOM.08/0049","admin","Irfan Wahyu Nugroho","2024","Irfan Wahyu Nugroho");
+INSERT INTO ket_perawatan VALUES("48","AMG.AG2/KOM.08/0047","admin","","2024","Deni Satriyo Wibowo");
+INSERT INTO ket_perawatan VALUES("49","AMG.AG2/KOM.08/0020","admin","Nur Mutianik harus di prowfiz dari tri agesti ke nur mutianik","2024","Tri Agesti");
+INSERT INTO ket_perawatan VALUES("50","AMG.AG2/KOM.08/0036","admin","","2024","Teguh Giri Suseno");
+INSERT INTO ket_perawatan VALUES("51","AMG.AG2/KOM.02/0035","admin","","2024","Nurul Muwakhidah");
+INSERT INTO ket_perawatan VALUES("52","AMG.AG2/KOM.08/0007","admin","","2024","Berliana Devi");
+INSERT INTO ket_perawatan VALUES("53","AMG.AG2/KOM.02/0028","admin","Husin Jaelani","2024","Husin Jaelani");
+INSERT INTO ket_perawatan VALUES("54","AMG.AG1/KOM.02/0002","admin","","2024","Suci Mariyana");
+INSERT INTO ket_perawatan VALUES("55","AMG.AG1/KOM.08/0014","admin","","2024","Hartanti");
+INSERT INTO ket_perawatan VALUES("56","AMG.AG1/KOM.08/0007","admin","Prowfiz ke darsini","2024","Darsini");
+INSERT INTO ket_perawatan VALUES("57","AMG.AG1/KOM.08/0006","admin","","2024","Endah nur santi");
 
 
 
@@ -443,7 +466,7 @@ INSERT INTO pcaktif VALUES("7","Afrizal Faldy (3.16)","AMBASADOR","PERSONALIA","
 INSERT INTO pcaktif VALUES("110","Debora Krisinta Putri (3.175)","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR","AMG.AG2/KOM.08/0093","Debora-md-ag","192.168.67.123","WINDOWS 10","INTEL CORE I7","MSI","-","16 GB","512 GB ssd","1","----------","0","01","2023-01-24","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("185","Yokana Adita P","AMBASADOR","IT","IT","KANTOR IT","AMG.AG2/KOM.08/0089","IT_AG_LAPTOP","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","32 GB","1 TB","1","------","0","04","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("11","Novita (3.57)","AMBASADOR","ENGINEERING","ENGINEERING","AMBASSADOR 1","AMG.AG1/KOM.02/0007","ENGINEERRING-01-IKA","192.168.67.83","WINDOWS 7","INTEL CORE 2 DUO E7500","VARRO","LG","4GB","80GB","1","03-12-2022","0","06","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("13","Mulat Haryanti (3.52)","AMBASADOR","ENGINEERING","ENGINEERING","AMBASSADOR 1","AMG.AG1/KOM.02/0006","PPIC-AG1","192.168.67.81","WINDOWS 7","INTEL CORE 2 DUO E6300GHZ","ASUS P5KPL","LG","4GB","160GB","1","12-08-2024","0","07","","","","","","","","0000-00-00","","cpu","");
+INSERT INTO pcaktif VALUES("13","Mulat Haryanti (3.52)","AMBASADOR","ENGINEERING","ENGINEERING","AMBASSADOR 1","AMG.AG1/KOM.02/0006","PPIC-AG1","192.168.67.81","WINDOWS 7","INTEL CORE 2 DUO E6300GHZ","ASUS P5KPL","LG","4GB","160GB","1","07-11-2024","0","07","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("14","Minuk Dwi (3.88)","AMBASADOR","MEKANIK","MEKANIK","AMBASSADOR 1","AMG.AG1/KOM.02/0014","USER PC","192.168.67.165","WINDOWS 10","INTEL CORE-I5","GIGABYTE","LG","8GB","500GB","1","09-02-2023","0","07","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("15","Diah Pawestri","AMBASADOR","PPIC","PPIC","AMBASSADOR 1","AMG.AG1/KOM.02/0011","DYAH-PAWESTRI","192.168.67.85","WINDOWS 10","INTEL CORE I3","ECS","LG","4GB","1TB","1","29-09-2022","0","08","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("202","Angelica Dara Berliana","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.08/0075","PPIC-ANGELICA-AG","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","","0","08","","","","","","","","0000-00-00","","LAPTOP","");
@@ -456,20 +479,20 @@ INSERT INTO pcaktif VALUES("25","Suci Mariyana","AMBASADOR","PERSONALIA","PERSON
 INSERT INTO pcaktif VALUES("80","Fuad Hidayat (3.68)","AMBASADOR","BORDIR","BORDIR","AMBASSADOR 2","AMG.AG2/KOM.02/0028","DAZUMBA-PC","192.168.67.154","WINDOWS 7","INTEL CORE I5-6400 CPU @","","LG","4GB","1TB","1","07-03-2024","0","12","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("107","Diana Istiyani (3.172)","AMBASADOR","PERSONALIA","PERSONALIA","AMBASSADOR","AMG.AG1/KOM.08/0002","DIANA-LAP-AG1","192.168.67.161","WINDOWS 10","INTEL CORE I7","","","16 GB","512 GB ssd","1","19-08-2024","0","01","2023-01-24","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("204","Dwi Jayanti","AMBASADOR","QMS","QMS","AMBASSADOR 1","AMG.AG2/KOM.08/0097","DJ-LAP-AG-QMS","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","","0","09","","","","","","","","0000-00-00","","LAPTOP","");
-INSERT INTO pcaktif VALUES("150","Deni Satriyo Wibowo","AMBASADOR","PEMBELIAN","IMPORT (EXIM)","AMBASSADOR 2","AMG.AG2/KOM.08/0047","deni-lap-exim","192.168.67.116","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","12","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("150","Octa Chaktyawan","AMBASADOR","PEMBELIAN","IMPORT (EXIM)","AMBASSADOR 2","AMG.AG2/KOM.08/0047","deni-lap-exim","192.168.67.116","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","12","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("172","Nunik Sulistyawati  (3.69)","AMBASADOR","PERSONALIA","PERSONALIA","AMBASSADOR","AMG.AG2/KOM.08/0061","Pers006-ag","192.168.67.160","win 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","06-08-2024","0","07","2024-07-17","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("152","DHEFA MAULANA","AMBASADOR","SHIPPING","SHIPPING","AMBASSADOR 2","AMG.AG2/KOM.08/0049","SHIPPING-AG-LAPT","192.168.3.77","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","","0","12","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("31","Yohanes Prasetya     (3.103)","AMBASADOR","EXPORT","EXPORT (EXIM)","AMBASSADOR 2","AMG.AG2/KOM.02/0001","SHIP_AG2","192.168.67.96","WINDOWS 7","INTEL CORE 2 CPU E7500 @2","VARRO","LG","2GB","500GB","1","23-04-2024","0","02","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("32","Bayu Setiawan (3.104)","AMBASADOR","MD","MD","AMBASSADOR 2","AMG.AG2/KOM.08/0018","Chris-md-tuf","192.168.67.133","WINDOWS 10","AMD Ryzen 7 4800H with Ra","ASUS","","8GB","512 GB ssd","1","21-07-2021","0","02","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("32","Septiana Sandra Nilasari","AMBASADOR","MD","MD","AMBASSADOR 2","AMG.AG2/KOM.08/0018","Chris-md-tuf","192.168.67.133","WINDOWS 10","AMD Ryzen 7 4800H with Ra","ASUS","","8GB","512 GB ssd","1","21-07-2021","0","02","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("35","Puspita Primaharani (3.145)","AMBASADOR","MD","MD LOKAL","AMBASSADOR 2","AMG.AG2/KOM.08/0015","AG2-15-PUSPITA","192.168.67.144","WINDOWS 10","INTEL CORE i7-1165G7 11th","ASUS","-","8GB","512 GB ssd","1","31-07-2024","0","02","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("33","Beby Arista","AMBASADOR","MD","MD","AMBASSADOR 2","AMG.AG2/KOM.08/0001","BEBY-ARISTA-LAP","192.168.67.117","WINDOWS 10","INTEL CORE i7","Dell Inc.","-","8GB","256GB","1","20-12-2023","0","02","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("36","Fajar Saputro     (3.108)","AMBASADOR","MD","MD LOKAL","AMBASSADOR 2","AMG.AG2/KOM.08/0005","fajar_penjualan","192.168.67.101","WINDOWS 10","INTEL CORE i7","Dell Inc.","-","8GB","512 GB ssd","1","31-10-2023","0","03","","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("37","Nataza Kumala Ardi  (3.141)","AMBASADOR","MARKETING","MARKETING","AMBASSADOR 2","AMG.AG2/KOM.02/0004","NOVIRANIPUTERI","192.168.67.99","WINDOWS 7","INTEL CORE i3-3240 CPU@3.","ECS","LG","2GB","500GB","1","12-01-2024","0","03","","","","","","","","0000-00-00","","cpu","");
+INSERT INTO pcaktif VALUES("37","Dewi Wulandari  (3.141)","AMBASADOR","MARKETING","MARKETING","AMBASSADOR 2","AMG.AG2/KOM.02/0004","Dewi-pc-mdlokal","192.168.67.99","WINDOWS 7","INTEL CORE i3-3240 CPU@3.","ECS","LG","4GB","500GB","1","12-01-2024","0","03","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("87","Gerardo  (3.138)","AMBASADOR","PENJUALAN","MERCHANDISER","AMBASSADOR","AMG.AG2/KOM.08/0003","Nataza_MD","192.168.67.124","WINDOWS 10","Core i7","","","8","512 GB","1","28-06-2021","0","01","2023-01-24","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("38","Dini Larasati  (3.148)","AMBASADOR","MD","MD LOKAL","AMBASSADOR 2","AMG.AG2/KOM.08/0006","DINI-LARASATI-MD","192.168.67.103","WINDOWS 10","INTEL CORE i7-1165G7 11th","MSI","-","8 GB","512 GB ssd","1","22-02-2024","0","03","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("41","Ai Efi Febrianti   (3.66)","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.02/0008","AG2-00-NUKE","192.168.67.104","WINDOWS 7","INTEL CORE i3-3220 CPU@3.","","LG","4GB","500GB","1","21-02-2024","0","04","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("42","Asiah Ummatul Hanif  (3.54)","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.02/0009","PPIC_ASIAH","192.168.67.106","WINDOWS XP","INTEL PENTIUM CPU G3220 @","","LG","2GB","160GB","1","29-05-2023","0","04","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("44","Febby Ninda  (3.238)","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.08/0008","FEBBY-PPICAG2","192.168.67.120","WINDOWS 10","CORE I-7-7700HQ CPU @2.80","","ASUS","8GB","1TB","1","19-09-2024","0","04","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("44","Rivan Feri Kusumadika  (3.238)","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.08/0008","FEBBY-PPICAG2","192.168.67.120","WINDOWS 10","CORE I-7-7700HQ CPU @2.80","ASUS X550V","ASUS","8GB","1TB","1","19-09-2024","0","04","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("198","Samuel Adi Utomo","AMBASADOR","PERSONALIA","PERSONALIA","AMBASSADOR 1","AMG.AG2/KOM.08/0081","SAMUEL-LAP-AG","-","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","","0","07","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("177","Hastian Damar Pratiwi","AMBASADOR","PENJUALAN","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0073","MD-005-Lp","-","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","------","0","11","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("46","Robertus Willy (3.10)","AMBASADOR","KEUANGAN","KEUANGAN","AMBASSADOR 2","AMG.AG2/KOM.08/0012","ACCUNTING1","192.168.67.140","WINDOWS 10","CORE I-7-7700HQ CPU @2.80","","","8GB","512 GB ssd","1","----------","0","05","","","","","","","","0000-00-00","","laptop","");
@@ -497,18 +520,17 @@ INSERT INTO pcaktif VALUES("60","Ria Qisti Malihah (3.23)","AMBASADOR","CUTTING"
 INSERT INTO pcaktif VALUES("59","Nur Muntianik  (3.95)","AMBASADOR","SEWING","SEWING","AMBASSADOR 2","AMG.AG2/KOM.02/0015","SEWING_NUR","192.168.67.114","WINDOWS 7","INTER XEON","","LG","2GB","80GB","1","14-12-2023","0","07","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("58","Tutik Pratiwi (3.133)","AMBASADOR","GUDANG FABRIC","GUDANG FABRIC","AMBASSADOR 2","AMG.AG2/KOM.02/0021","INSPECTINGAG2_PC","192.168.67.37","WINDOWS 7","Intel Pentium R","","","2GB","320GB","1","07-09-2023","0","07","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("57","Ayu Marlina (3.21)","AMBASADOR","GUDANG","GUDANG FABRIC","AMBASSADOR 2","AMG.AG2/KOM.02/0020","USER-PC","192.168.67.36","WINDOWS 7","INTEL CORE i3-3240 CPU@3.","","LG","2GB","500GB","1","19-07-2024","0","07","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("56","Christien (3.94)","AMBASADOR","GD_ASMAT","GD_ASMAT","AMBASSADOR 2","AMG.AG2/KOM.02/0019","GUDANG_ACC","192.168.67.35","WINDOWS 7","INTEL CORE i3-3220 CPU@3.","","LG","2GB","500GB","1","09-11-2023","0","07","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("55","Vionita Febriana  (3.47)","AMBASADOR","QC","QC","AMBASSADOR 2","AMG.AG2/KOM.02/0014","AG2-11-MUNAWARUH","192.168.67.121","WINDOWS 7","INTEL CORE i3-3240 CPU@3.","","LG","2GB","500GB","1","01-07-2024","0","06","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("54","Atika Sari (3.89)","AMBASADOR","QA","QA","AMBASSADOR 2","AMG.AG2/KOM.02/0033","ADM-QA","192.168.67.153","WINDOWS 7","INTEL CORE 2 CPU 6300 @ 1","","LG","2GB","160GB","1","28-08-2024","0","06","","","","","","","","0000-00-00","","cpu","");
+INSERT INTO pcaktif VALUES("54","Atika Sari (3.89)","AMBASADOR","QA","QA","AMBASSADOR 2","AMG.AG2/KOM.02/0033","ADM-QA","192.168.67.153","WINDOWS 7","INTEL CORE 2 CPU 6300 @ 1","","LG","2GB","160GB","1","07-10-2024","0","06","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("53","Bintari P Sari (3.46)","AMBASADOR","PACKING","PACKING","AMBASSADOR 2","AMG.AG2/KOM.02/0017","AG2-06-SLAMET","192.168.67.40","WINDOWS 7","INTEL CORE i3-3220 CPU@3.","","LG","2GB","500GB","1","19-04-2024","0","06","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("183","WARIDI","AMBASADOR","GD_INCOMING","GD_INCOMING","PRODUKSI","AMG.AG1/KOM.08/0021","LAP-WARIDI","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","------","0","05","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("82","Eko Suntoro (4.59)","AMBASADOR","PDS","PDS","AMBASSADOR 2","AMG.AG2/KOM.02/0034","PDS_10","192.168.67.151","WINDOWS 7","INTEL CORE I3-2130 CPU @","","LED LG 19 in","4 GB","500 GB","1","20-12-2021","0","10","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("143","Putri Pancawati","AMBASADOR","QMS","QMS","KANTOR EFRATA","AMG.AG2/KOM.08/0041","Putri_PDU002","192.168.68.50","WINDOWS 10 64 bit","INTEL CORE I7","ASUS","ASUS 16 in","8 GB","1 TB","1","------","0","08","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("108","Faradina Windiastuti","AMBASADOR","PERSONALIA","PERSONALIA","AMBASSADOR 1","AMG.AG2/KOM.08/0013","PERS-FARADINA-LAP","192.168.67.82","WINDOWS 10","INTEL CORE i7","ASUS X550V","-","8 GB","1 TB","1","----------","0","01","2023-01-24","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("85","Yohhanes Rizky (3.139)","AMBASADOR","AKUNTANSI","AKUNTANSI","AMBASSADOR","AMG.AG2/KOM.02/0013","Gilang_Nuraga","192.168.67.143","Win 10","INTEL CORE I5","","","8 GB","446 GB","1","17-02-2022","0","02","2023-02-15","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("86","Vera Fatimah (3.140)","AMBASADOR","PENJUALAN","MERCHANDISER","AMBASSADOR","AMG.AG2/KOM.08/0016","Vera Fatimah","192.168.67.135","WIN 10","CORE i-7","","","8 GB","SSD 512 GB","1","20-02-2023","0","02","2023-02-15","8 GB","","SSD 512 GB","","","","2021-06-21","","LAPTOP","DELL Inspiron 15 3000");
+INSERT INTO pcaktif VALUES("86","Evilia Hera Widias Ningrum","AMBASADOR","PENJUALAN","MERCHANDISER","AMBASSADOR","AMG.AG2/KOM.08/0016","Merch-Lap-AG","-","WIN 10","CORE i-7","","","8 GB","SSD 512 GB","1","20-02-2023","0","02","2023-02-15","8 GB","","SSD 512 GB","","","","2021-06-21","","LAPTOP","DELL Inspiron 15 3000");
 INSERT INTO pcaktif VALUES("109","Nuraini","AMBASADOR","PEMBELIAN","PEMBELIAN","AMBASSADOR","AMG.AG2/KOM.08/0043","nuraini-ag-lap","192.168.3.174","WINDOWS 10","INTEL CORE I7","","","16 GB","512 GB ssd","1","----------","0","02","2023-02-16","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("88","Probowati Wiguna (3.142)","AMBASADOR","QA","QA GARMENT","AMBASSADOR 2","AMG.AG2/KOM.02/0016","QA_KARLINDA","192.168.67.41","WIN 7","INTEL XEON 1.6 GHZ","VARRO G41","LED LG 16 in","2 GB","160 GB","1","22-12-2023","0","01","","","","","","","","0000-00-00","","CPU","");
+INSERT INTO pcaktif VALUES("88","Probowati Wiguna (3.142)","AMBASADOR","QA","QA GARMENT","AMBASSADOR 2","AMG.AG2/KOM.02/0016","QA_KARLINDA","192.168.67.41","WIN 7","INTEL XEON 1.6 GHZ","VARRO G41","LED LG 16 in","2 GB","160 GB","1","05-11-2024","0","01","","","","","","","","0000-00-00","","CPU","");
 INSERT INTO pcaktif VALUES("89","Aan Saptyo Aji","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0014","Sales-Aji-AG","192.168.67.136","WINDOWS 10","INTEL CORE I7-8550 CPU @","","","8GB","128 GB SSD/ 2 T","1","27-07-2023","0","02","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("90","Teguh Giri","AMBASADOR","LABORAT","LABORAT","AMBASSADOR","AMG.AG2/KOM.08/0036","Teguh-Giri-Lab (3.146)","192.168.67.78","WINDOWS 10","INTEL CORE I7","","","8 GB","512 GB ssd","1","19-08-2024","0","12","2022-12-30","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("91","Kania Oktaviana   (3.149)","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR","AMG.AG2/KOM.02/0005","DevyNirmala-MD","192.168.67.108","WINDOWS 7","INTEL CORE I3","","","4 GB","500 GB","1","04-07-2023","0","02","2023-02-17","","","","","","","0000-00-00","","CPU","");
@@ -549,9 +571,9 @@ INSERT INTO pcaktif VALUES("129","Hartini","AMBASADOR","ENGINEERING","ENGINEERIN
 INSERT INTO pcaktif VALUES("130","Dewi Laptop (3.183)","AMBASADOR","PPIC","IC","AMBASSADOR","AMG.AG1/KOM.08/0011","dewi-kurni-lap","192.168.67.168","WINDOWS 10","INTEL CORE I3","","","4 GB","500 GB","1","----------","0","11","2023-11-23","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("131","Waridi-laptop (3.182)","AMBASADOR","GUDANG","GD_OUTGOING","AMBASSADOR","AMG.AG1/KOM.08/0010","waridi-laptop","192.168.67.167","WINDOWS 10","INTEL CORE I3","","","4 GB","500 GB","1","----------","0","08","2023-08-25","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("132","lilis-laptop","AMBASADOR","QA","QUALITY","AMBASSADOR","AMG.AG1/KOM.08/0023","Lilis-Laptop","192.168.3.181","WINDOWS 10","INTEL CORE I3","","","4 GB","500 GB","1","----------","0","08","2023-08-18","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("133","Inung Ria Wahyu Utami (3.187)","AMBASADOR","GUDANG ACCESORIES","GUDANG ACCESSORIES","AMBASSADOR","AMG.AG2/KOM.08/0009","inung-lap-dell","192.168.67.122","Windows 10","INTEL CORE I7","DELL INC.","","8","512 ssd","1","----------","0","10","2023-10-19","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("134","Aryak Dedi","AMBASADOR","GUDANG FABRIC","GUDANG FABRIC","AMBASSADOR","AMG.AG2/KOM.08/0024","GD_ASMAT_LAPTOP","192.168.67.51","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","----------","0","11","2023-11-23","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("135","Sri Isrini","AMBASADOR","PACKING","PACKING","AMBASSADOR","AMG.AG2/KOM.08/0022","PACKING_LAPTOP","192.168.67.52","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","----------","0","10","2023-10-20","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("133","Inung Ria Wahyu Utami (3.187)","AMBASADOR","GD_ASMAT","GD_ASMAT","AMBASSADOR","AMG.AG2/KOM.08/0009","inung-lap-dell","192.168.67.122","Windows 10","INTEL CORE I7","DELL INC.","","8","512 ssd","1","----------","0","10","2023-10-19","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("134","Ayu Marlina Triyadi","AMBASADOR","GUDANG","GUDANG FABRIC","AMBASSADOR","AMG.AG2/KOM.08/0024","GD_ASMAT_LAPTOP","192.168.67.51","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","----------","0","11","2023-11-23","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("135","Sri Isrini","AMBASADOR","PACKING","PACKING","AMBASSADOR","AMG.AG2/KOM.08/0022","PACKING_LAPTOP","192.168.67.52","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","08-11-2024","0","10","2023-10-20","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("136","SRI WELAS ASIH","AMBASADOR","FINISHING","FINISHING","AMBASSADOR","AMG.AG2/KOM.08/0027","FINISHING_LAPTOP","192.168.67.53","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","----------","0","09","2023-09-21","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("137","RUBIYATI","AMBASADOR","CUTTING","CUTTING","AMBASSADOR","AMG.AG2/KOM.08/0032","CUTTING_LAPTOP","192.168.67.54","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","26-07-2023","0","04","2023-04-12","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("138","SUHARSI","AMBASADOR","SEWING","SEWING","AMBASSADOR","AMG.AG2/KOM.08/0021","SUHARSI_LAPTOP","-","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 ssd","1","----------","0","10","2023-10-20","","","","","","","0000-00-00","","laptop","");
@@ -560,21 +582,21 @@ INSERT INTO pcaktif VALUES("140","Hartanti (3.73)","AMBASADOR","5","5 S","AMBASS
 INSERT INTO pcaktif VALUES("141","ESTI YULIANA (3.74)","AMBASADOR","PRODUKSI","PPIC","AMBASSADOR 1","AMG.AG1/KOM.08/0007","ESTI-LAP-AG1","192.168.67.88","Windows 10","INTEL CORE I7-8550 CPU @","DELL INC.","DELL","8 GB","512 GB SSD","1","----------","0","12","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("142","ENDAH NUR SANTI","AMBASADOR","PRODUKSI","SEWING","AMBASSADOR 1","AMG.AG1/KOM.08/0006","ENDAH-SEW-AG1","192.168.3.75","Windows 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","12","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("145","ARUM SEKARINGTYAS","AMBASADOR","QMS","QMS","AMBASSADOR 1","AMG.AG2/KOM.08/0065","ARUM-PDU-AG","192.168.67.90","WINDOWS 10 64 bit","INTEL CORE I7","DELL INC.","","16 GB","512 GB SSD","1","------","0","08","","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("146","KARLINDA","AMBASADOR","QA","QA","AMBASSADOR 2","AMG.AG2/KOM.08/0066","KARLINDA-AG-QC","-_","WINDOWS 10 64 bit","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","21-05-2024","0","07","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("146","Dwi Rahdyaningsih","AMBASADOR","QA","PSO","AMBASSADOR 2","AMG.AG2/KOM.08/0066","PSO-LAP-AG","-_","WINDOWS 10 64 bit","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","21-05-2024","0","07","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("147","OKTI DWI CAHYANI","AMBASADOR","PPIC","PPIC","AMBASSADOR 2","AMG.AG2/KOM.08/0067","PPIC-AG2-LAPDELL","-","WINDOWS 10 64 bit","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","","0","01","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("176","Nurul Huda","AMBASADOR","CUTTING","CUTTING","PRODUKSI","AMG.AG2/KOM.08/0033","Warmiasih-Lap","-","WINDOWS 10 64 bit","INTEL Core i3","Lenovo","","4 GB","1 TB","1","----------","0","10","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("148","Nur Muntianik  (3.160)","AMBASADOR","PRODUKSI","SEWING","AMBASSADOR","AMG.AG2/KOM.08/0020","agsti-sewag-lap","192.168.67.126","windows 10","INTEL CORE I3","","","4 GB","1 TB","1","13-05-2024","0","12","2023-12-21","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("149","Berliana Devi","AMBASADOR","PPIC","PPIC","AMBASSADOR","AMG.AG2/KOM.08/0007","Berliana-ppic-ag","192.168.67.107","WIN 7","INTEL CELERON","","","2 GB","500 GB","1","18-07-2024","0","12","2023-12-01","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("153","Lucia Jessica Amin (3.49)","AMBASADOR","KEUANGAN","KEUANGAN","AMBASSADOR 2","AMG.AG2/KOM.08/0050","AKUNTANSI1-LAPTOP","192.168.67.141","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","01","","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("154","MARCHIDO PUTRAMASTYA","AMBASADOR","PEMBELIAN","PEMBELIAN","AMBASSADOR 2","AMG.AG2/KOM.08/0051","PEMBELIAN5-LAPT","192.168.67.63","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","03","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("154","Fransisca Febriana Anggi Rosat","AMBASADOR","PEMBELIAN","PEMBELIAN","AMBASSADOR 2","AMG.AG2/KOM.08/0051","PEMBELIAN5-LAPT","192.168.67.63","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","03","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("155","DEVY NIRMALA SARI INDARTO","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0052","DEVY-PENJ-LAP","192.168.3.76","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","------","0","04","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("156","MURDIYONO","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0053","MD-MURDIYONO-LP","192.168.3.79","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","","0","04","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("157","YUDA PRAKARSA (3.80)","AMBASADOR","MERCHANDISER","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0054","MD-YUDA-LPT","192.168.67.112","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","------","0","08","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("158","Fajar Ramadhan (3.112)","AMBASADOR","AKUNTANSI","AKUNTANSI","AMBASSADOR 2","AMG.AG2/KOM.08/0055","AKUNTANSI2-LAPTOP","192.168.67.138","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","03-01-2024","0","01","","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("159","Mokhamad Zuhri","AMBASADOR","GUDANG ACCESORIES","GUDANG ACCESSORIES","AMBASSADOR 2","AMG.AG2/KOM.08/0056","ZUHRI-LAP-GDG","-","WINDOWS 11 PRO","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","05","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("159","Christien Cahyani","AMBASADOR","GUDANG","GUDANG ACCESSORIES","AMBASSADOR 2","AMG.AG2/KOM.08/0056","ZUHRI-LAP-GDG","-","WINDOWS 11 PRO","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","05","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("160","HANGER 6","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0057","HANGER-LAPTOP6","-","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","05","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("161","Line Digital 3","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0059","Line Digital 3","-","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","------","0","06","","","","","","","","0000-00-00","","laptop","");
-INSERT INTO pcaktif VALUES("162","HANGER 5","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0060","LAPT-HANGING5","-","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","07","","","","","","","","0000-00-00","","laptop","");
+INSERT INTO pcaktif VALUES("162","HANGER 5","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0060","LAPT-HANGING5","192.168.67.209","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","21-10-2024","0","07","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("163","Line Digital 5","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0062","Line Digital 5","-","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","------","0","07","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("164","Line Digital 6","AMBASADOR","ENGINEERING","ENGINEERING","PRODUKSI","AMG.AG2/KOM.08/0063","Line Digital 6","-","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","------","0","02","","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("165","Julifer Mauliate Siahaan (3.11","AMBASADOR","MEKANIK","MEKANIK","AMBASSADOR 1","AMG.AG1/KOM.08/0013","ENGINEERING-AG1","192.168.67.92","WINDOWS 10","INTEL CORE I7","DELL INC.","","8 GB","512 GB SSD","1","----------","0","01","","","","","","","","0000-00-00","","laptop","");
@@ -588,7 +610,7 @@ INSERT INTO pcaktif VALUES("174","Laura Lumbantobing","AMBASADOR","ENGINEERING",
 INSERT INTO pcaktif VALUES("201","Sunarmi","AMBASADOR","AKUNTANSI","KEUANGAN","AMBASSADOR 2","AMG.AG2/KOM.08/0096","KASIR-AG-LAP","192.168.67.132","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","----------","0","08","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("178","Administrator","AMBASADOR","IT","IT","AMBASSADOR 2","AMG.AG2/NET.07/0001","WN-2QKTZJXTXTQKQ","192.168.3.6","Windows Server @ Enterpri","INTEL XEON","DELL INC.","-","4 GB","500GB","1","----------","0","01","","","","","","","","0000-00-00","","cpu","");
 INSERT INTO pcaktif VALUES("179","ITdeveloper","AMBASADOR","IT","IT","AMBASSADOR 2","AMG.AG2/NET.07/0003","AG-SVR","192.168.80.2","Windows Server 2022 Stand","INTEL XEON","DELL INC.","-","64 GB","1 TB","1","----------","0","01","","","","","","","","0000-00-00","","cpu","");
-INSERT INTO pcaktif VALUES("180","ITdeveloper","AMBASADOR","IT","IT","KANTOR EFRATA","AMG.AG2/NET.07/0002","AMBASSADORADC","192.168.3.4","Windows Server 2007","INTEL XEON","DELL INC.","-","2 GB","500 GB","1","----------","0","02","","","","","","","","0000-00-00","","cpu","");
+INSERT INTO pcaktif VALUES("207","Vera Fatimah","AMBASADOR","PENJUALAN","MERCHANDISER","AMBASSADOR 2","AMG.AG2/KOM.08/0100","VERA-LAP-AG","192.168.67.135","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","","0","11","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("181","Ahmad Saidi","AMBASADOR","IT","IT","KANTOR","AMG.AG2/KOM.08/0086","DESKTOP-UNKAE71","192.168.3.207","WIN 11","INTEL CORE I7","DELL","","16","512 ssd","1","----------","0","03","2024-03-08","","","","","","","0000-00-00","","laptop","");
 INSERT INTO pcaktif VALUES("186","Mohammad Harisma Dyah Kusuma","AMBASADOR","PACKING","PACKING","PRODUKSI","AMG.AG2/KOM.08/0088","MOHAMMAD-LAP-AG","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","","0","05","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("187","DANIEL SIANTURI","AMBASADOR","DRIL","DRIL","DRIL EFRATA","AMG.AG2/KOM.08/0087","DRIL-AG-LAP","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","1 TB","1","----------","0","04","","","","","","","","0000-00-00","","LAPTOP","");
@@ -603,6 +625,8 @@ INSERT INTO pcaktif VALUES("195","Maryam Hayati","AMBASADOR","ENGINEERING","ENGI
 INSERT INTO pcaktif VALUES("199","Nunung Listyowati","AMBASADOR","POLA","PDS","SAMPLE","AMG.AG1/KOM.08/0070","AG-PDS-LAP","192.168.67.151","WINDOWS 10 64 bit","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","","0","06","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("200","Brian Sapto Utomo","AMBASADOR","PEMBELIAN","PEMBELIAN","AMBASSADOR 2","AMG.AG2/KOM.08/0074","PURCH006-AG2","192.168.67.56","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","","0","04","","","","","","","","0000-00-00","","LAPTOP","");
 INSERT INTO pcaktif VALUES("203","S. W. Nur Rachma Sari","AMBASADOR","Kepala Bagian","PRODUKSI","AMBASSADOR 1","AMG.AG1/KOM.08/0026","SARI-PRD-AG1","-","WINDOWS 11 PRO","INTEL CORE I7","MSI","","16 GB","512 GB SSD","1","","0","08","","","","","","","","0000-00-00","","LAPTOP","");
+INSERT INTO pcaktif VALUES("208","Karlinda","AMBASADOR","QA","QA","AMBASSADOR 2","AMG.AG2/KOM.08/0101","AG-KARLINDA-QA","-","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","","0","11","","","","","","","","0000-00-00","","LAPTOP","");
+INSERT INTO pcaktif VALUES("209","Rahayu Sri Mumpuni","AMBASADOR","PEMBELIAN","PEMBELIAN","AMBASSADOR 2","AMG.AG2/KOM.08/0102","PEMBELIAN-PUNI-AG","-","WINDOWS 11 PRO","INTEL CORE I7","ASUS","","16 GB","512 GB SSD","1","","0","11","","","","","","","","0000-00-00","","LAPTOP","");
 
 
 
@@ -797,6 +821,108 @@ INSERT INTO pcaktif2 VALUES("171","Lupi Khomariah","AMBASADOR","PRODUKSI","PRODU
 
 
 
+DROP TABLE perawatan;
+
+CREATE TABLE `perawatan` (
+  `id` int(10) NOT NULL auto_increment,
+  `idpc` varchar(255) collate latin1_general_ci default NULL,
+  `tipe_perawatan_id` int(10) default NULL,
+  `tipe_perawatan_item_id` varchar(100) collate latin1_general_ci default NULL,
+  `tanggal_perawatan` date default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=287 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+INSERT INTO perawatan VALUES("221","AMG.AG2/KOM.08/0049","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("222","AMG.AG2/KOM.08/0049","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("223","AMG.AG2/KOM.08/0049","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("224","AMG.AG2/KOM.08/0049","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("225","AMG.AG2/KOM.08/0049","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("226","AMG.AG2/KOM.08/0049","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("227","AMG.AG2/KOM.08/0047","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("228","AMG.AG2/KOM.08/0047","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("229","AMG.AG2/KOM.08/0047","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("230","AMG.AG2/KOM.08/0047","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("231","AMG.AG2/KOM.08/0047","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("232","AMG.AG2/KOM.08/0047","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("233","AMG.AG2/KOM.08/0020","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("234","AMG.AG2/KOM.08/0020","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("235","AMG.AG2/KOM.08/0020","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("236","AMG.AG2/KOM.08/0020","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("237","AMG.AG2/KOM.08/0020","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("238","AMG.AG2/KOM.08/0020","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("239","AMG.AG2/KOM.08/0036","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("240","AMG.AG2/KOM.08/0036","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("241","AMG.AG2/KOM.08/0036","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("242","AMG.AG2/KOM.08/0036","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("243","AMG.AG2/KOM.08/0036","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("244","AMG.AG2/KOM.08/0036","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("245","AMG.AG2/KOM.02/0035","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("246","AMG.AG2/KOM.02/0035","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("247","AMG.AG2/KOM.02/0035","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("248","AMG.AG2/KOM.02/0035","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("249","AMG.AG2/KOM.02/0035","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("250","AMG.AG2/KOM.02/0035","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("251","AMG.AG2/KOM.08/0007","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("252","AMG.AG2/KOM.08/0007","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("253","AMG.AG2/KOM.08/0007","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("254","AMG.AG2/KOM.08/0007","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("255","AMG.AG2/KOM.08/0007","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("256","AMG.AG2/KOM.08/0007","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("257","AMG.AG2/KOM.02/0028","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("258","AMG.AG2/KOM.02/0028","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("259","AMG.AG2/KOM.02/0028","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("260","AMG.AG2/KOM.02/0028","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("261","AMG.AG2/KOM.02/0028","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("262","AMG.AG2/KOM.02/0028","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("263","AMG.AG1/KOM.02/0002","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("264","AMG.AG1/KOM.02/0002","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("265","AMG.AG1/KOM.02/0002","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("266","AMG.AG1/KOM.02/0002","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("267","AMG.AG1/KOM.02/0002","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("268","AMG.AG1/KOM.02/0002","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("269","AMG.AG1/KOM.08/0014","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("270","AMG.AG1/KOM.08/0014","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("271","AMG.AG1/KOM.08/0014","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("272","AMG.AG1/KOM.08/0014","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("273","AMG.AG1/KOM.08/0014","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("274","AMG.AG1/KOM.08/0014","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("275","AMG.AG1/KOM.08/0007","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("276","AMG.AG1/KOM.08/0007","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("277","AMG.AG1/KOM.08/0007","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("278","AMG.AG1/KOM.08/0007","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("279","AMG.AG1/KOM.08/0007","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("280","AMG.AG1/KOM.08/0007","20","73","2024-12-04");
+INSERT INTO perawatan VALUES("281","AMG.AG1/KOM.08/0006","20","68","2024-12-04");
+INSERT INTO perawatan VALUES("282","AMG.AG1/KOM.08/0006","20","69","2024-12-04");
+INSERT INTO perawatan VALUES("283","AMG.AG1/KOM.08/0006","20","70","2024-12-04");
+INSERT INTO perawatan VALUES("284","AMG.AG1/KOM.08/0006","20","71","2024-12-04");
+INSERT INTO perawatan VALUES("285","AMG.AG1/KOM.08/0006","20","72","2024-12-04");
+INSERT INTO perawatan VALUES("286","AMG.AG1/KOM.08/0006","20","73","2024-12-04");
+
+
+
+DROP TABLE peripheral;
+
+CREATE TABLE `peripheral` (
+  `nomor` char(10) collate latin1_general_ci NOT NULL,
+  `id_perangkat` char(100) collate latin1_general_ci default NULL,
+  `perangkat` char(100) collate latin1_general_ci default NULL,
+  `tipe` char(100) collate latin1_general_ci default NULL,
+  `brand` char(100) collate latin1_general_ci default NULL,
+  `model` char(100) collate latin1_general_ci default NULL,
+  `pembelian_dari` char(100) collate latin1_general_ci default NULL,
+  `sn` char(100) collate latin1_general_ci default NULL,
+  `tgl_perawatan` char(100) collate latin1_general_ci default NULL,
+  `bulan` char(100) collate latin1_general_ci default NULL,
+  `user` char(100) collate latin1_general_ci default NULL,
+  `divisi` char(100) collate latin1_general_ci default NULL,
+  `lokasi` char(100) collate latin1_general_ci default NULL,
+  `keterangan` varchar(255) collate latin1_general_ci default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+
+
+
 DROP TABLE permintaan;
 
 CREATE TABLE `permintaan` (
@@ -825,43 +951,33 @@ CREATE TABLE `printer` (
   `id_perangkat` char(35) collate latin1_general_ci default NULL,
   `printer` char(45) collate latin1_general_ci default NULL,
   `keterangan` char(50) collate latin1_general_ci default NULL,
-  `status` varchar(30) collate latin1_general_ci NOT NULL
+  `status` varchar(30) collate latin1_general_ci NOT NULL,
+  `user` varchar(50) collate latin1_general_ci default NULL,
+  `lokasi` varchar(50) collate latin1_general_ci default NULL,
+  `bulan` varchar(50) collate latin1_general_ci default NULL,
+  `tgl_perawatan` date default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=DYNAMIC;
 
-INSERT INTO printer VALUES("0016","AMG.AG2/PRI.01/0014","EPSON L310","ENGINEERING (Sri murwani)","AMBASSADOR2");
-INSERT INTO printer VALUES("0015","AMG.AG2/PRI.01/0028","HP Laserjet Pro 1102W","GUDANG UMUM (Dewi Marfiani)","AMBASSADOR2");
-INSERT INTO printer VALUES("0014","AMG.AG2/PRI.01/0024","Epson L1210","G. Packing (Bintari 2)","AMBASSADOR2");
-INSERT INTO printer VALUES("0013","AMG.AG2/PRI.01/0029","CANON LBP 6030","G. Packing (Bintari)","AMBASSADOR2");
-INSERT INTO printer VALUES("0012","AMG.AG2/PRI.01/0003","CANON IP 2770","AKUNTANSI (rudi subroto)","AMBASSADOR2");
-INSERT INTO printer VALUES("0011","AMG.AG2/PRI.01/0017","Hp laserjet P1006","KEUANGAN (Sunarmi)","AMBASSADOR2");
-INSERT INTO printer VALUES("0010","AMG.AG1/PRI.01/0005","HP Laserjet Pro 1102W","SHIPPING (Syaiful Bahri )","AMBASSADOR1");
-INSERT INTO printer VALUES("0009","AMG.AG1/PRI.01/0007","CANON LBP 2900","QC (Anik Hastuti )","AMBASSADOR1");
-INSERT INTO printer VALUES("0008","AMG.AG1/PRI.01/0010","HP Laserjet Pro 1102W","PPIC (Diah Pawestri)","AMBASSADOR1");
-INSERT INTO printer VALUES("0007","AMG.AG1/PRI.01/0004","HP Laserjet P1006","PPIC (Esthi Yuliana)","AMBASSADOR1");
-INSERT INTO printer VALUES("0006","AMG.AG1/PRI.01/0002","Epson L3210","PERSONALIA (Zulfi Afrizal Fadly )","AMBASSADOR1");
-INSERT INTO printer VALUES("0005","AMG.AG1/PRI.01/0001","CANON LBP 2900","PERSONALIA (Topo Ardianto)","AMBASSADOR1");
-INSERT INTO printer VALUES("0004","AMG.AG1/PRI.01/0006","Epson L3210","MEKANIK (Julifer Mauliate Siahaan)","AMBASSADOR1");
-INSERT INTO printer VALUES("0003","AMG.AG1/PRI.01/0009","EPSON L310","KEPALA BAGIAN (Siti Fadilah)","AMBASSADOR1");
-INSERT INTO printer VALUES("0002","AMG.AG1/PRI.01/0003","CANON LBP 2900","ENGINEERING (Novita Putri Utami)","AMBASSADOR1");
-INSERT INTO printer VALUES("0001","AMG.AG1/PRI.01/0008","CANON LBP 2900","GUDANG INCOMING (WARIDI)","AMBASSADOR1");
-INSERT INTO printer VALUES("0017","AMG.AG2/PRI.01/0004","EPSON L310","KEUANGAN (Willy)","AMBASSADOR2");
-INSERT INTO printer VALUES("0018","AMG.AG2/PRI.01/0018","CANON LBP 2900","LABORAT (Teguh Giri)","AMBASSADOR2");
-INSERT INTO printer VALUES("0019","AMG.AG2/PRI.01/0010","Canon 6030","PEMBELIAN (Deni satriyo)","AMBASSADOR2");
-INSERT INTO printer VALUES("0020","AMG.AG2/PRI.01/0022","HP Laserjet Pro M12W","PEMBELIAN (Ika)","AMBASSADOR2");
-INSERT INTO printer VALUES("0021","AMG.AG2/PRI.01/0030","EPSON L3110","MERCHANDISER (Gabriella)","AMBASSADOR2");
-INSERT INTO printer VALUES("0022","AMG.AG2/PRI.01/0019","Epson L3210","PEMBELIAN (Dian Margono)","AMBASSADOR2");
-INSERT INTO printer VALUES("0023","AMG.AG2/PRI.01/0005","Canon 6030","PEMBELIAN (Dian Margono)","AMBASSADOR2");
-INSERT INTO printer VALUES("0024","AMG.AG2/PRI.01/0023","Epson L3210","PENJUALAN (Beby Arista)","AMBASSADOR2");
-INSERT INTO printer VALUES("0025","AMG.AG2/PRI.01/0006","Epson L120","PENJUALAN LOKAL (Az Zahra)","AMBASSADOR2");
-INSERT INTO printer VALUES("0026","AMG.AG2/PRI.01/0007","Epson L3210","PENJUALAN LOKAL (Az Zahra)","AMBASSADOR2");
-INSERT INTO printer VALUES("0027","AMG.AG2/PRI.01/0021","HP Laserjet Pro 1102W","PERSONALIA (Faradina Windiastuti )","AMBASSADOR2");
-INSERT INTO printer VALUES("0028","AMG.AG2/PRI.01/0026","EPSON L310","PPIC (Idris)","AMBASSADOR2");
-INSERT INTO printer VALUES("0029","AMG.AG2/PRI.01/0008","CANON LBP 2900","SEWING (Nur Muntianik)","AMBASSADOR2");
-INSERT INTO printer VALUES("0030","AMG.AG2/PRI.01/0013","CANON LBP 2900","CUTTING ( Ria Qisti Malihah)","AMBASSADOR2");
-INSERT INTO printer VALUES("0031","AMG.AG2/PRI.01/0027","HP Laserjet Pro 1102W","FINISHING (Sri Welas Asih)","AMBASSADOR2");
-INSERT INTO printer VALUES("0032","AMG.AG2/PRI.01/0020","EPSON L3110","QA SYSTEM ( Dwi Jayanti)","AMBASSADOR2");
-INSERT INTO printer VALUES("0033","AMG.AG2/PRI.01/0025","EPSON L3210","SAMPLE (SITI HANDAYANI)","AMBASSADOR2");
-INSERT INTO printer VALUES("0034","AMG.AG2/PRI.01/0001","Epson L3210","SHIPPING (DHEFA)","AMBASSADOR2");
+INSERT INTO printer VALUES("0016","AMG.AG2/PRI.01/0014","EPSON L310","ENGINEERING (Sri murwani)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0015","AMG.AG2/PRI.01/0028","HP Laserjet Pro 1102W","GUDANG UMUM (Dewi Marfiani)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0014","AMG.AG2/PRI.01/0024","Epson L1210","G. Packing (Bintari 2)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0012","AMG.AG2/PRI.01/0003","CANON IP 2770","AKUNTANSI (rudi subroto)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0011","AMG.AG2/PRI.01/0017","Hp laserjet P1006","KEUANGAN (Sunarmi)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0010","AMG.AG1/PRI.01/0005","HP Laserjet Pro 1102W","SHIPPING (Syaiful Bahri )","AMBASSADOR1","","","","");
+INSERT INTO printer VALUES("0008","AMG.AG1/PRI.01/0010","HP Laserjet Pro 1102W","PPIC (Diah Pawestri)","AMBASSADOR1","","","","");
+INSERT INTO printer VALUES("0006","AMG.AG1/PRI.01/0002","Epson L3210","PERSONALIA (Zulfi Afrizal Fadly )","AMBASSADOR1","","","","");
+INSERT INTO printer VALUES("0005","AMG.AG1/PRI.01/0001","CANON LBP 2900","PERSONALIA (Topo Ardianto)","AMBASSADOR1","","","","");
+INSERT INTO printer VALUES("0004","AMG.AG1/PRI.01/0006","Epson L3210","MEKANIK (Julifer Mauliate Siahaan)","AMBASSADOR1","","","","");
+INSERT INTO printer VALUES("0035","AMG.AG1/PRI.01/0007","CANON LBP 2900","Gudang Asmat (Christien)","AMBASSADOR2","Christien","Gudang Asmat","","0000-00-00");
+INSERT INTO printer VALUES("0018","AMG.AG2/PRI.01/0018","CANON LBP 2900","LABORAT (Teguh Giri)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0019","AMG.AG2/PRI.01/0010","Canon 6030","PEMBELIAN (Deni satriyo)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0022","AMG.AG2/PRI.01/0019","Epson L3210","PEMBELIAN (Dian Margono)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0024","AMG.AG2/PRI.01/0023","Epson L3210","PENJUALAN (Beby Arista)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0026","AMG.AG2/PRI.01/0007","Epson L3210","PENJUALAN LOKAL (Az Zahra)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0030","AMG.AG2/PRI.01/0013","CANON LBP 2900","CUTTING ( Ria Qisti Malihah)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0032","AMG.AG2/PRI.01/0020","EPSON L3110","QA SYSTEM ( Dwi Jayanti)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0033","AMG.AG2/PRI.01/0025","EPSON L3210","SAMPLE (SITI HANDAYANI)","AMBASSADOR2","","","","");
+INSERT INTO printer VALUES("0034","AMG.AG2/PRI.01/0001","Epson L3210","SHIPPING (DHEFA)","AMBASSADOR2","","","","");
 
 
 
@@ -889,12 +1005,16 @@ CREATE TABLE `scaner` (
   `id_perangkat` char(35) collate latin1_general_ci NOT NULL,
   `printer` char(45) collate latin1_general_ci NOT NULL,
   `keterangan` char(50) collate latin1_general_ci NOT NULL,
-  `status` char(30) collate latin1_general_ci NOT NULL
+  `status` char(30) collate latin1_general_ci NOT NULL,
+  `user` varchar(50) collate latin1_general_ci default NULL,
+  `lokasi` varchar(50) collate latin1_general_ci default NULL,
+  `bulan` varchar(50) collate latin1_general_ci default NULL,
+  `tgl_perawatan` date default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=FIXED;
 
-INSERT INTO scaner VALUES("00001","AMG.AG1/OTH.02/0002","SCANNER CANON LIDE 120","AKUNTANSI (Willy)","AMBASSADOR2");
-INSERT INTO scaner VALUES("00002","AMG.AG2/OTH.02/0001","SCANNER EPSON V39","LABORAT (Teguh Giri)","AMBASSADOR2");
-INSERT INTO scaner VALUES("00003","AMG.AG2/OTH.02/0003","Scanner Brother ADS-3100","AKUNTANSI (Zidni)","AMBASSADOR2");
+INSERT INTO scaner VALUES("00001","AMG.AG1/OTH.02/0002","SCANNER CANON LIDE 120","AKUNTANSI (Willy)","AMBASSADOR2","","","","");
+INSERT INTO scaner VALUES("00002","AMG.AG2/OTH.02/0001","SCANNER EPSON V39","LABORAT (Teguh Giri)","AMBASSADOR2","","","","");
+INSERT INTO scaner VALUES("00003","AMG.AG2/OTH.02/0003","Scanner Brother ADS-3100","AKUNTANSI (Zidni)","AMBASSADOR2","","","","");
 
 
 
@@ -1237,6 +1357,11 @@ INSERT INTO service VALUES("295","10-09-2024","08:41","Zidni","ACCOUNTING","A","
 INSERT INTO service VALUES("296","17-09-2024","08:47","Idris","PPIC","A","laptop","Engsel rusak","Melisa","19-09-2024","13:05","Saidi","Service engsel laptop","","","","","selesai","192.168.67.120","","D","service","","17-09-2024","SP");
 INSERT INTO service VALUES("297","30-10-2024","09:14","Dwi Jayanti","QMS","A","CPU","Pindah data ganti laptop baru","Melisa","30-10-2024","15:14","Saidi","Pindah data ganti laptop baru","","","","","selesai","192.168.67.89","","D","service","","30-10-2024","NON_SP");
 INSERT INTO service VALUES("298","01-11-2024","08:45","Rudi Subroto","AKUNTANSI","A","cpu","Pindah data ganti laptop","Melisa","01-11-2024","15:06","Saidi","Pindah data ganti laptop","","","","","selesai","192.168.67.137","","D","service","","01-11-2024","NON_SP");
+INSERT INTO service VALUES("299","04-10-2024","08:39","Arina","QA","A","cpu","PC Mati","Saidi","07-10-2024","16:21","Saidi","Cek Boot di PC","","","","","selesai","192.168.67.153","","D","service","","04-10-2024","NON_SP");
+INSERT INTO service VALUES("300","17-10-2024","08:25","Laura","ENGINEERING","A","laptop","Engsel Laptop rusak","Saidi","21-10-2024","16:25","Arief","Service engsel","","","","","selesai","192.168.67.209","","D","service","","16-10-2024","SP");
+INSERT INTO service VALUES("301","04-11-2024","15:01","Dwi Rahdya","QA","A","CPU","Komputer mati","Saidi","05-11-2024","13:25","Saidi","Bersihkan RAM","","","","","selesai","192.168.67.41","","D","service","","01-11-2024","NON_SP");
+INSERT INTO service VALUES("302","08-11-2024","11:15","Agesti","PACKING","A","laptop","Jaringan Lemot","Saidi","08-11-2024","16:26","Saidi","Ganti settingan jaringan 5G","","","","","selesai","192.168.67.52","","D","service","","08-11-2024","NON_SP");
+INSERT INTO service VALUES("303","06-11-2024","10:45","Fitri","ENGINEERING","A","cpu","Link","Saidi","07-11-2024","11:13","Saidi","Penambahan Dongle wifi","","","","","selesai","192.168.67.81","","D","service","","06-11-2024","SP");
 
 
 
@@ -1405,7 +1530,7 @@ INSERT INTO software VALUES("126","23-07-2024","09:40","Untari AG","PEMBELIAN","
 INSERT INTO software VALUES("127","23-07-2024","09:41","Mega Napitupulu","PEMBELIAN","A","TIKA","NOTA RETUR PPN Rp. 0 (NK24060022L)","24-07-2024","09:41","Bug Fix","TIKA","Selesai","","","","28-06-2024","","");
 INSERT INTO software VALUES("128","23-07-2024","09:42","Mega Napitupulu","PEMBELIAN","A","TIKA","NOTA RETUR PPN Rp. 0 (NK24040009L dan NK24040010L)","24-07-2024","09:42","Bug Fix","TIKA","Selesai","","","","26-06-2024","","");
 INSERT INTO software VALUES("129","15-08-2024","08:42","Kania Oktaviana","MERCHANDISER","A","DEWI","Komoditi dalam booking tidak bisa ditarik (tidak mencukupi)","19-08-2024","08:42","Bug Fix","DEWI","Selesai","","","","14-08-2024","","");
-INSERT INTO software VALUES("130","17-10-2024","11:31","Untari AG","PEMBELIAN","A","RIAN","tes tes","21-10-2024","11:31","tes tes","RIAN","Selesai","","","","14-10-2024","15-10-2024","HIGH");
+INSERT INTO software VALUES("130","01-11-2024","09:42","Untari AG","PEMBELIAN","A","TIKA","tanggal PO eksternal tidak sesuai dengan tanggal inputan utk semua","01-11-2024","09:42","Bug fix","TIKA","Selesai","","","","28-10-2024","30-10-2024","NORMAL");
 
 
 
@@ -1829,6 +1954,8 @@ INSERT INTO sub_bagian VALUES("SB000106","GD_OUTGOING");
 INSERT INTO sub_bagian VALUES("SB000107","MEKANIK");
 INSERT INTO sub_bagian VALUES("SB000108","IMPORT (EXIM)");
 INSERT INTO sub_bagian VALUES("SB000109","DRIL");
+INSERT INTO sub_bagian VALUES("SB000110","GD_ASMAT");
+INSERT INTO sub_bagian VALUES("SB000111","PSO");
 
 
 
@@ -1838,7 +1965,7 @@ CREATE TABLE `tbackup` (
   `tgl` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=FIXED;
 
-INSERT INTO tbackup VALUES("2024-11-15");
+INSERT INTO tbackup VALUES("2024-12-24");
 
 
 
@@ -1960,7 +2087,7 @@ INSERT INTO tbarang VALUES("000000000000099","C","00021","CATRIDGE EPSON LQ 1170
 INSERT INTO tbarang VALUES("000000000000100","C","00020","CATRIDGE 53A","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000101","C","00020","CATRIDGE 05A / 80A","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000102","C","00020","CATRIDGE 35A / 85A","0","-20","T","T","","","admin","rutin","y");
-INSERT INTO tbarang VALUES("000000000000103","C","00020","CATRIDGE 12A","0","-26","T","T","","","admin","rutin","y");
+INSERT INTO tbarang VALUES("000000000000103","C","00020","CATRIDGE 12A","0","-30","T","T","","","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000104","C","00011","CATRIDGE 85N LIGHT CYAN","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000105","C","00011","CATRIDGE 85N CYAN","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000106","C","00011","CATRIDGE 85N BLACK","0","0","T","T","","","","","");
@@ -2078,7 +2205,7 @@ INSERT INTO tbarang VALUES("000000000000224","MOTHERGMT","00001","MOTHERBOARD GM
 INSERT INTO tbarang VALUES("000000000000225","MONTXT","00009","MONITOR TXT","0","0","T","T","","Monitor Textile ","","","");
 INSERT INTO tbarang VALUES("000000000000226","HUB8","00026","SWITCH HUB 8 PORT","0","2","T","T","","Switch 8 Port ","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000227","SWITCH16","00026","SWITCH HUB 16 PORT","0","1","T","T","","Switch 16 Port","admin","rutin","y");
-INSERT INTO tbarang VALUES("000000000000228","MOU","00019","MOUSE USB","0","5","T","T","","Mouse port usb","admin","rutin","y");
+INSERT INTO tbarang VALUES("000000000000228","MOU","00019","MOUSE USB","0","4","T","T","","Mouse port usb","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000229","MOTHERTXT","00001","MOTHERBOARD TXT","0","0","T","T","","Motherboard Textile","","","");
 INSERT INTO tbarang VALUES("000000000000230","","00002","PROSESOR TXT","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000231","","00005","HARDDISK 2.5","0","0","T","T","","","","","");
@@ -2093,11 +2220,11 @@ INSERT INTO tbarang VALUES("000000000000238","","00027","LCD PROYECTOR","0","0",
 INSERT INTO tbarang VALUES("000000000000239","","00028","PC CORE I5","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000240","","00015","DELL INSPIRON 5570  (CORE I7-8550U/8GB/T1 TB/VGA 4GB DDR5/15\")","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000242","","00016","KABEL BELDEN UTP CAT6","0","0","T","T","","","admin","","");
-INSERT INTO tbarang VALUES("000000000000244","","00017","REFIL EPSON 003 BLACK","0","18","T","Y","","","admin","rutin","y");
+INSERT INTO tbarang VALUES("000000000000244","","00017","REFIL EPSON 003 BLACK","0","14","T","Y","","","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000243","","00007","FAN PROCESSOR INTEL","0","0","T","T","","","","","");
 INSERT INTO tbarang VALUES("000000000000245","","00017","REFIL EPSON 003 YELLOW","0","15","T","Y","","","admin","rutin","y");
-INSERT INTO tbarang VALUES("000000000000246","","00017","REFIL EPSON 003 CYAN","0","16","T","Y","","","admin","rutin","y");
-INSERT INTO tbarang VALUES("000000000000247","","00017","REFIL EPSON 003 MAGENTA","0","20","T","Y","","","admin","rutin","y");
+INSERT INTO tbarang VALUES("000000000000246","","00017","REFIL EPSON 003 CYAN","0","15","T","Y","","","admin","rutin","y");
+INSERT INTO tbarang VALUES("000000000000247","","00017","REFIL EPSON 003 MAGENTA","0","19","T","Y","","","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000251","","00014","TANGGA LIPAT","0","0","Y","T","ada","","","","");
 INSERT INTO tbarang VALUES("000000000000249","","00022","PRINTER HP LASERJET P1006","0","0","Y","Y","","","","","");
 INSERT INTO tbarang VALUES("000000000000250","","00001","INTEL DH61WW","0","0","T","T","","","","","");
@@ -2226,6 +2353,81 @@ INSERT INTO tbarang VALUES("000000000000373","PRO-EF010","00022","EPSON TM-U220"
 INSERT INTO tbarang VALUES("000000000000374","ssd512","00031","SSD 512 GB","0","0","T","T","","","admin","rutin","y");
 INSERT INTO tbarang VALUES("000000000000375","ap","00030","AKSES POINT RUIJIE","0","0","Y","T","","","admin","rutin","");
 INSERT INTO tbarang VALUES("000000000000376","msi-mthb","00001","MSI","0","0","Y","T","","MSI LAPTOP","","","");
+
+
+
+DROP TABLE tipe_perawatan;
+
+CREATE TABLE `tipe_perawatan` (
+  `id` int(10) NOT NULL auto_increment,
+  `nama_perangkat` varchar(255) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+INSERT INTO tipe_perawatan VALUES("20","PC dan Laptop");
+INSERT INTO tipe_perawatan VALUES("32","Printer");
+INSERT INTO tipe_perawatan VALUES("22","Switch/Router");
+INSERT INTO tipe_perawatan VALUES("23","Kabel Jaringan");
+INSERT INTO tipe_perawatan VALUES("24","Server");
+INSERT INTO tipe_perawatan VALUES("25","UPS");
+INSERT INTO tipe_perawatan VALUES("26","Access Point");
+INSERT INTO tipe_perawatan VALUES("27","Proyektor");
+INSERT INTO tipe_perawatan VALUES("28","Scaner");
+INSERT INTO tipe_perawatan VALUES("29","NVR / DVR");
+INSERT INTO tipe_perawatan VALUES("30","Kamera");
+INSERT INTO tipe_perawatan VALUES("31","FingerSpot");
+
+
+
+DROP TABLE tipe_perawatan_item;
+
+CREATE TABLE `tipe_perawatan_item` (
+  `id` int(10) NOT NULL auto_increment,
+  `tipe_perawatan_id` int(10) default NULL,
+  `nama_perawatan` varchar(255) collate latin1_general_ci default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=119 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+INSERT INTO tipe_perawatan_item VALUES("68","20","Kondisi Fisik Pc dan Laptop");
+INSERT INTO tipe_perawatan_item VALUES("69","20","Kondisi OS");
+INSERT INTO tipe_perawatan_item VALUES("70","20","Kondisi Apps");
+INSERT INTO tipe_perawatan_item VALUES("71","20","Kondisi AV");
+INSERT INTO tipe_perawatan_item VALUES("72","20","Kondisi Monitor");
+INSERT INTO tipe_perawatan_item VALUES("73","20","Kondisi CPU");
+INSERT INTO tipe_perawatan_item VALUES("79","22","Kondisi Fisik Switch/Router");
+INSERT INTO tipe_perawatan_item VALUES("109","32","Test Print");
+INSERT INTO tipe_perawatan_item VALUES("108","32","Kondisi Fisik Printer");
+INSERT INTO tipe_perawatan_item VALUES("80","22","Lampu Indikator Power dan Link");
+INSERT INTO tipe_perawatan_item VALUES("81","22","Manageable Switch");
+INSERT INTO tipe_perawatan_item VALUES("82","23","Kondisi Fisik Kabel Jaringan");
+INSERT INTO tipe_perawatan_item VALUES("83","24","Kondisi Fisik Server");
+INSERT INTO tipe_perawatan_item VALUES("84","24","Kondisi OS");
+INSERT INTO tipe_perawatan_item VALUES("85","24","Kondisi Apps");
+INSERT INTO tipe_perawatan_item VALUES("86","24","Kondisi CPU");
+INSERT INTO tipe_perawatan_item VALUES("87","25","Kondisi Fisik UPS");
+INSERT INTO tipe_perawatan_item VALUES("88","25","Kondisi Baterai");
+INSERT INTO tipe_perawatan_item VALUES("89","25","Kondisi Lampu Indikator");
+INSERT INTO tipe_perawatan_item VALUES("90","25","Kondisi Alarm");
+INSERT INTO tipe_perawatan_item VALUES("91","26","Kondisi Fisik Access Point");
+INSERT INTO tipe_perawatan_item VALUES("92","26","Kondisi Lampu Indikator");
+INSERT INTO tipe_perawatan_item VALUES("93","26","Kondisi Koneksi dan SSID");
+INSERT INTO tipe_perawatan_item VALUES("94","27","Kondisi Fisik Proyektor");
+INSERT INTO tipe_perawatan_item VALUES("95","27","Kondisi Filter Udara");
+INSERT INTO tipe_perawatan_item VALUES("96","27","Kondisi Lensa");
+INSERT INTO tipe_perawatan_item VALUES("97","27","Kondisi Pencahayaan");
+INSERT INTO tipe_perawatan_item VALUES("98","28","Kondisi Fisik Scanner");
+INSERT INTO tipe_perawatan_item VALUES("99","28","Test Scan");
+INSERT INTO tipe_perawatan_item VALUES("100","29","Kondisi Fisik NVR / DVR");
+INSERT INTO tipe_perawatan_item VALUES("101","29","Kondisi Rekaman Kamera dari Live");
+INSERT INTO tipe_perawatan_item VALUES("102","29","Kondisi Failure Hardisk");
+INSERT INTO tipe_perawatan_item VALUES("103","30","Kondisi Kamera");
+INSERT INTO tipe_perawatan_item VALUES("104","30","Kondisi Kejelasan Kamera");
+INSERT INTO tipe_perawatan_item VALUES("105","30","Kondisi View Kamera Dilihat dari Monitor/Online");
+INSERT INTO tipe_perawatan_item VALUES("106","31","Kondisi Fisik Alat");
+INSERT INTO tipe_perawatan_item VALUES("107","31","Kondisi Fungsi Sensor Sidik Jari");
+INSERT INTO tipe_perawatan_item VALUES("110","32","Kondisi Tinta");
+INSERT INTO tipe_perawatan_item VALUES("111","31","Kondisi Layar Finger");
+INSERT INTO tipe_perawatan_item VALUES("112","26","Kondisi Fisik");
 
 
 
@@ -2675,6 +2877,15 @@ INSERT INTO tpengambilan VALUES("00000000000259","2024-10-15","18:02","Ria","B13
 INSERT INTO tpengambilan VALUES("00000000000260","2024-10-21","18:03","Beby","B112","AMBASADOR","");
 INSERT INTO tpengambilan VALUES("00000000000261","2024-10-21","18:03","Ridwan","B084","AMBASADOR","");
 INSERT INTO tpengambilan VALUES("00000000000262","2024-10-21","18:03","Topo","B114","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000263","2024-10-31","16:44","Dila Novita","B138","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000264","2024-11-06","14:42","Gadang","B124","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000265","2024-11-11","14:44","Arif Budiyanto","B137","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000266","2024-11-13","14:47","Ria","B138","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000267","2024-11-18","14:48","Arina","B142","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000268","2024-11-25","14:50","Teguh Giri","B144","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000269","2024-11-26","14:51","Ria","B138","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000270","2024-12-03","14:52","Arif Budiyanto","B137","AMBASADOR","");
+INSERT INTO tpengambilan VALUES("00000000000271","2024-12-03","14:52","Lila","B087","AMBASADOR","pinjam MAS");
 
 
 
@@ -3051,6 +3262,17 @@ INSERT INTO trincipengambilan VALUES("00000000000260","000000000000245","REFIL E
 INSERT INTO trincipengambilan VALUES("00000000000260","000000000000246","REFIL EPSON 003 CYAN","1","","");
 INSERT INTO trincipengambilan VALUES("00000000000261","000000000000244","REFIL EPSON 003 BLACK","1","","");
 INSERT INTO trincipengambilan VALUES("00000000000262","000000000000102","CATRIDGE 35A / 85A","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000263","000000000000103","CATRIDGE 12A","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000264","000000000000228","MOUSE USB","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000265","000000000000244","REFIL EPSON 003 BLACK","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000266","000000000000103","CATRIDGE 12A","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000267","000000000000244","REFIL EPSON 003 BLACK","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000267","000000000000246","REFIL EPSON 003 CYAN","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000267","000000000000247","REFIL EPSON 003 MAGENTA","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000268","000000000000103","CATRIDGE 12A","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000269","000000000000103","CATRIDGE 12A","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000270","000000000000244","REFIL EPSON 003 BLACK","1","","");
+INSERT INTO trincipengambilan VALUES("00000000000271","000000000000244","REFIL EPSON 003 BLACK","1","","");
 
 
 
@@ -3153,11 +3375,12 @@ CREATE TABLE `tuser` (
   `akses` char(25) collate latin1_general_ci NOT NULL,
   `file` char(120) collate latin1_general_ci NOT NULL,
   PRIMARY KEY  USING BTREE (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=FIXED;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci ROW_FORMAT=FIXED;
 
 INSERT INTO tuser VALUES("4","admin","dlris30g","admin","admin.jpg");
 INSERT INTO tuser VALUES("5","user","","user","Aditya Wisnu W.jpg");
 INSERT INTO tuser VALUES("1","iso","","iso","");
+INSERT INTO tuser VALUES("46","akbar","danliris1234.","super admin","");
 
 
 
