@@ -27,14 +27,15 @@ if (!empty($_GET['perangkat'])) {
     $qry_item = mysql_query("SELECT id as jumlahperawatan FROM tipe_perawatan_item WHERE tipe_perawatan_id = $perangkat");
     $jumlahperawatan = mysql_num_rows($qry_item);
 
-
+    // <!--new mdp-->
     if(strtolower($tipe) == 'pc dan laptop')
     {
+        
         $query = "SELECT 
                     idpc, 
                     user, 
                     lokasi, 
-                    models AS perangkat,
+                    'model' AS perangkat,
                     (SELECT COUNT(*) FROM perawatan WHERE perawatan.idpc = pcaktif.idpc AND  YEAR(tanggal_perawatan) = $tahun ) AS hitung,
                     (SELECT tanggal_perawatan FROM perawatan WHERE perawatan.idpc = pcaktif.idpc AND  YEAR(tanggal_perawatan) = $tahun LIMIT 1) AS tanggal,
                     (SELECT ket FROM ket_perawatan WHERE ket_perawatan.idpc = pcaktif.idpc AND  tahun = $tahun) AS keterangan,
@@ -112,6 +113,39 @@ $query .= " ORDER BY tanggal DESC";
 $result = mysql_query($query, $conn);
 
 $output = "";
+// if (mysql_num_rows($result) > 0) {
+//     $sudah = 0;
+//     $sedang =0;
+//     $belum = 0;
+//     while ($row = mysql_fetch_assoc($result)) {
+       
+//         if ($row['hitung'] ==  $jumlahperawatan ) {
+//             $sudah++;
+//         } else if ($row['hitung'] < $jumlahperawatan && $row['hitung'] > 0  ){
+//             $sedang++;
+//         } else {
+//             $belum++;
+//         } 
+        
+//     }
+//     $total = mysql_num_rows($result);
+//     $progress = $sudah/$total * 100;
+//         $output .= "<tr>";
+//         $output .= "<td>" . $sudah . "</td>";
+//         $output .= "<td>" . $sedang . "</td>";
+//         $output .= "<td>" . $belum . "</td>";
+//         $output .= "<td>" . $total  . "</td>";
+//         if($progress < 50){
+//             $output .= "<td style='background-color:#FE6868;'>" . round($progress, 2). " % </td>";
+//         }else if($progress >= 50){
+//             $output .= "<td style='background-color:#59F2ED;'>" . round($progress, 2). " % </td>";
+//         }
+//         $output .= "</tr>";
+
+// } else {
+//     $output .= "<tr><td colspan='3'>Tidak ada data ditemukan.</td></tr>";
+// }
+
 if (mysql_num_rows($result) > 0) {
     $sudah = 0;
     $sedang =0;
@@ -144,7 +178,6 @@ if (mysql_num_rows($result) > 0) {
 } else {
     $output .= "<tr><td colspan='3'>Tidak ada data ditemukan.</td></tr>";
 }
-
 echo $output;
 
 mysql_close($conn);
