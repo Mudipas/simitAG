@@ -27,9 +27,10 @@ if (!empty($_GET['perangkat'])) {
     $qry_item = mysql_query("SELECT id as jumlahperawatan FROM tipe_perawatan_item WHERE tipe_perawatan_id = $perangkat");
     $jumlahperawatan = mysql_num_rows($qry_item);
 
-
+    // <!--new mdp-->
     if(strtolower($tipe) == 'pc dan laptop')
     {
+        
         $query = "SELECT 
                     idpc, 
                     user, 
