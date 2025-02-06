@@ -51,7 +51,7 @@ $conn = $koneksi;
                                         ?>    
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <b> Divisi</b>        
                                     <select class="form-control" name='namadivisi' required='required'>	 
                                     <option> </option>
@@ -70,6 +70,14 @@ $conn = $koneksi;
                                     </select> 
                                         
                                     
+                                </div> -->
+
+
+                                <div class="form-group">
+                                    <b>Divisi</b>        
+                                    <select class="form-control" name="namadivisi" required="required" onchange="this.value='AMBASSADOR'">
+                                        <option value="AMBASSADOR" selected>AMBASSADOR</option>
+                                    </select>
                                 </div>
 
                                 
