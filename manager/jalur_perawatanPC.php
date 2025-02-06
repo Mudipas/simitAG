@@ -70,11 +70,9 @@ font-size:18px bold;
 <tr>
  <td>Divisi :</td>
  <td> :</td>
- <td class="isi_combo"><select  name="pdivisi" id="devisi" >
- <option selected="selected"></option>
- <option value="GARMENT">GARMENT</option>
- <option value="TEXTILE">TEXTILE</option>
-</select>
+ <td class="isi_combo"><select class="form-control" name="namadivisi" required="required" onchange="this.value='AMBASSADOR'">
+                                        <option value="AMBASSADOR" selected>AMBASSADOR</option>
+                                    </select>
  </td></tr>
 <tr><td colspan="3" align="left"><img src="../img/pdf.png" style="width: 25px; height: 25px;"><input type="submit" name="simpan" value="PREVIEW PDF" ></tr> 
 </table>
