@@ -39,7 +39,7 @@ font-size:18px bold;
  <td> :</td>
  <td class="isi_combo"><select  name="id_divisi" id="devisi" required="required">
 
- <option value="AMBASADOR" selected="selected">AMBASADOR</option>
+ <option value="AMBASSADOR" selected="selected">AMBASSADOR</option>
 </select>
  </td>
 </tr>
@@ -58,7 +58,7 @@ font-size:18px bold;
  <td> :</td>
  <td class="isi_combo"><select  name="id_divisi" id="devisi" required="required">
 
- <option value="AMBASADOR" selected="selected">AMBASADOR</option>
+ <option value="AMBASSADOR" selected="selected">AMBASSADOR</option>
 </select>
  </td>
 </tr>
